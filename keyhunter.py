@@ -9,7 +9,7 @@ import sys
 readlength=10*1024*1024
 
 if len(sys.argv)!=2:
-  print "./keyhunter.py <filename>"
+  print ("./keyhunter.py <filename>")
   exit()
 
 filename = sys.argv[1]
@@ -28,7 +28,7 @@ def b58encode(v):
   """ encode v, which is a string of bytes, to base58.
   """
 
-  long_value = 0L
+  long_value = 0
   for (i, c) in enumerate(v[::-1]):
     long_value += (256**i) * ord(c)
 
@@ -74,7 +74,7 @@ while True:
     #pos=data.find('\13\02\01\01\04\20',0)
     if pos==-1:
       break
-    print EncodeBase58Check('\x80'+data[pos+magiclen:pos+magiclen+32])
+    print (EncodeBase58Check('\x80'+data[pos+magiclen:pos+magiclen+32]))
     x+=(pos+1)
   
   # are we at the end of the file?
